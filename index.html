@@ -108,12 +108,13 @@
         function worker() {
 	        console.log("worker");
             let price_ = document.getElementById("price").value;
-	        console.log(price_);
+	        console.log(price_);S
             let volume_ = document.getElementById("volume").value;
 	        console.log(volume_);
             if (price_ < 10) {
                 console.log("error");
                 document.getElementById('error').innerText = 'Ошибка в цене';
+                return;
             }
             tg.close()
         }
