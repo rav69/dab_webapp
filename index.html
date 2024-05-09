@@ -20,17 +20,22 @@
        </style>
 </head>
 <body>
-    <div id="start">
+    <div id="flag">
         <!-- <h1>Казахстан</h1> -->
         <p class="img_centr"><img src=kz.png width="75%"
             style="border: 1px solid black; border-radius: 10px;"></p>
-        <p class="text_align_justify">К заказу доступны только новые автомобили.</p>
-        <p class="text_align_justify">Выберите интересующий вас автомобиль,
-            например на сайте официального дилера KIA
+    </div>
+    <div class="text_align_justify">
+        <!-- <p class="text_align_justify">К заказу доступны только новые автомобили.</p>
+        <p class="text_align_justify">Выберите интересующий вас автомобиль, -->
+        <p>К заказу доступны только новые автомобили.</p>
+        <p>Выберите интересующий вас автомобиль,
+                например на сайте официального дилера KIA
             в Казахстане <a href="https://www.kia.com.kz">www.kia.com.kz</a>,
             и посмотрите его стоимость. Заполните необходимые
             поля для расчета и нажмите кнопку "Произвести расчет"'</p>
-
+    </div>
+    <div>
         <form class="img_centr">
             <label>Введите стоимость автомобиля</label><br>
             <input type="number" name="price" id="price"  placeholder="Казахстанский тенге"><br>
@@ -47,7 +52,8 @@
             <input type="color" id="color"><br>
             <input type="submit" value="Отправить">
             <input type="reset" value="Очистить"> -->
-        </form>    </div>
+        </form>
+    </div>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         let tg = window.Telegram.WebApp;
