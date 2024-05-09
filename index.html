@@ -13,6 +13,9 @@
             margin-top: 10px; margin-bottom: 10px;
             border-radius: 50px; 
         }
+        .inputbr {
+            text-align: center; 
+        }
         .text_align_justify {
             text-align: justify;
             margin-left: 10px; margin-right: 10px; 
@@ -33,15 +36,15 @@
                 например на сайте официального дилера KIA
             в Казахстане <a href="https://www.kia.com.kz">www.kia.com.kz</a>,
             и посмотрите его стоимость. Заполните необходимые
-            поля для расчета и нажмите кнопку "Произвести расчет"'</p>
+            поля для расчета и нажмите кнопку "Произвести расчет".'</p>
     </div>
     <div>
-        <form class="img_centr">
-            <label>Введите стоимость автомобиля</label><br>
-            <input type="number" name="price" id="price"  placeholder="Казахстанский тенге"><br>
-            <label>Введите объём двигателя</label><br>
-            <input type="number" name="volume" id="volume"  placeholder="Например 2000"><br>
-            <input type="button" value="Отправить">
+        <form class="inputbr" >
+            <!-- <label>Введите данные по автомобилю</label><br> -->
+            <p><input type="number" name="price" id="price"  required autocomplete placeholder="Стоимость в тенге"><br></p>
+            <!-- <label>Введите объём двигателя</label><br> -->
+            <p><input type="number" name="volume" id="volume"  required autocomplete placeholder="Объём двигателя"><br></p>
+            <p><input type="button" value="Произвести расчет" required></p>
             <!-- <input type="text" name="name" id="name" placeholder="Ваше имя"><br>
             <label for="maleFemale">Выберите ваш пол</label><br>
             <input type="radio" name="maleFemale" id="maleFemale" value="male">
