@@ -7,19 +7,24 @@
     <style>
         .img_centr {
             text-align: center; 
+            margin: 10px;
         }
+
+        .text_align_justify {
+            text-align: justify;
+            margin: 10px 10px 30px 10px; 
+        }
+
         .btn_centr {
             text-align: center; 
             margin-top: 10px; margin-bottom: 10px;
             border-radius: 50px; 
         }
+
         .inputbr {
             text-align: center; 
         }
-        .text_align_justify {
-            text-align: justify;
-            margin-left: 10px; margin-right: 10px; 
-        }
+
         .feedback input {
             display: block;
             height: 25px;
@@ -37,7 +42,7 @@
 <body>
     <div id="flag">
         <!-- <h1>Казахстан</h1> -->
-        <p class="img_centr"><img src=kz.png width="75%"
+        <p class="img_centr"><img src=kz.png width="auto"
             style="border: 1px solid black; border-radius: 10px;"></p>
     </div>
     <div class="text_align_justify">
@@ -48,7 +53,7 @@
                 например на сайте официального дилера KIA
             в Казахстане <a href="https://www.kia.com.kz">www.kia.com.kz</a>,
             и посмотрите его стоимость. Заполните необходимые
-            поля для расчета и нажмите кнопку "Произвести расчет".'</p>
+            поля для расчета и нажмите кнопку "Произвести расчет".</p>
     </div>
     <div class="feedback" >
         <form method="POST" action="">
@@ -56,7 +61,7 @@
             <p><input type="number" name="price" id="price"  required autocomplete placeholder="Стоимость в тенге"><br></p>
             <!-- <label>Введите объём двигателя</label><br> -->
             <p><input type="number" name="volume" id="volume"  required autocomplete placeholder="Объём двигателя"><br></p>
-            <p class="inputbr"><button style="height: 30px; width: 180px; border-radius: 10px; text-align: center;">Произвести расчет</button></p>
+            <p class="inputbr"><button style="height: 50px; width: 180px; border-radius: 10px; text-align: center;">Произвести расчет</button></p>
             <!-- <p><input style="height: 27px; width: 180px;" type="button" value="Произвести расчет" required></p> -->
             <!-- <input type="text" name="name" id="name" placeholder="Ваше имя"><br>
             <label for="maleFemale">Выберите ваш пол</label><br>
