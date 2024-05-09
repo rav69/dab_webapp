@@ -20,6 +20,17 @@
             text-align: justify;
             margin-left: 10px; margin-right: 10px; 
         }
+        .feedback input {
+            display: block;
+            height: 25px;
+            margin: 5px auto 1px;
+            border: 1px solid black;
+            /* -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -khtml-border-radius: 10px; */
+            border-radius: 10px;
+            text-indent: 10px;
+        }
        </style>
 </head>
 <body>
@@ -38,8 +49,8 @@
             и посмотрите его стоимость. Заполните необходимые
             поля для расчета и нажмите кнопку "Произвести расчет".'</p>
     </div>
-    <div>
-        <form class="inputbr" >
+    <div class="feedback" >
+        <form method="POST" action="">
             <!-- <label>Введите данные по автомобилю</label><br> -->
             <p><input type="number" name="price" id="price"  required autocomplete placeholder="Стоимость в тенге"><br></p>
             <!-- <label>Введите объём двигателя</label><br> -->
