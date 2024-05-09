@@ -9,8 +9,8 @@
             font-family: 'Montserrat', sans-serif;
             font-weight: 400;
             color: var(--tg-theme-text-color);
-            #colo
-            background: var(--tg-theme-bg-color);
+            /* color */
+            /* background: var(--tg-theme-bg-color); */
         }
 
         .cr {
@@ -112,7 +112,12 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         let tg = window.Telegram.WebApp;
+        let calc = document.getElementById("calc");
         tg.expand();
+
+        order.addEventListener("click", () => {
+            tg.close();
+        })
     </script>
 </body>
 </html>
