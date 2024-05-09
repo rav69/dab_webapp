@@ -97,21 +97,44 @@
     </form>
     <!-- </div> -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <!-- <script language="JavaScript" type="text/javascript" src="/js/jquery-1.2.6.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/js/jquery-ui-personalized-1.5.2.packed.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/js/sprinkle.js"></script> -->
     <script>
         let tg = window.Telegram.WebApp;
-        let calc = document.getElementById("calc");
+        let calc = document.getElementById('calc');
         tg.expand();
 
-        order.addEventListener("click", () => {
-            document.getElementById("error").innerText = '';
+        function worker() {
+	        console.log("worker");
             let price_ = document.getElementById("price").value;
+	        console.log(price_);
             let volume_ = document.getElementById("volume").value;
-            if(price < 10) {
-                document.getElementById("error").innerText = 'Ошибка в цене';
-                return;
+	        console.log(volume_);
+            if (price_ < 10) {
+                console.log("error");
+                document.getElementById('error').innerText = 'Ошибка в цене';
             }
-            tg.close();
-        })
+            tg.close()
+        }
+        calc.addEventListener('click', worker);
+
+        // calc.addEventListener('click', () =>{
+        //     calc.addEventListener('click', hello);
+        //     // order.addEventListener("click", () => {
+        //     // document.getElementById("error").innerText = '';
+        //     setTimeout(() => {  console.log("World!"); }, 2000);
+        //     let price_ = document.getElementById("price").value;
+        //     let volume_ = document.getElementById("volume").value;
+        //     if(price < 10) {
+        //         console.log("hello");
+        //         setTimeout(() => {  console.log("World!"); }, 2000);
+        //         document.getElementById("error").innerText = 'Ошибка в цене';
+        //         console.log("hello");
+        //         // return;
+        //     }
+        //     // tg.close();
+        // })
     </script>
 </body>
 </html>
