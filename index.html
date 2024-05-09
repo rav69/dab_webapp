@@ -88,14 +88,14 @@
             и посмотрите его стоимость. Заполните необходимые
             поля для расчета и нажмите кнопку "Произвести расчет".</p>
     </div>
-    <div class="feedback" >
-        <form id="form">
-            <input type="number" required autocomplete placeholder="Стоимость в тенге" id="price">
-            <input type="number" required autocomplete placeholder="Объём двигателя" id="volume">
-            <div id="error"></div>
-            <button id="calc">Произвести расчет</button>
-        </form>
-    </div>
+    <!-- <div class="feedback" > -->
+    <form id="form">
+        <input type="number" required autocomplete placeholder="Стоимость в тенге" id="price">
+        <input type="number" required autocomplete placeholder="Объём двигателя" id="volume">
+        <div id="error"></div>
+        <button id="calc">Произвести расчет</button>
+    </form>
+    <!-- </div> -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         let tg = window.Telegram.WebApp;
