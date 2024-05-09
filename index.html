@@ -10,7 +10,7 @@
             font-weight: 400;
             color: var(--tg-theme-text-color);
             /* color */
-            /* background: var(--tg-theme-bg-color); */
+            background: var(--tg-theme-bg-color);
         }
 
         .cr {
@@ -92,6 +92,7 @@
         <form id="form">
             <input type="number" required autocomplete placeholder="Стоимость в тенге" id="price">
             <input type="number" required autocomplete placeholder="Объём двигателя" id="volume">
+            <div id="error"></div>
             <button id="calc">Произвести расчет</button>
         </form>
     </div>
@@ -102,6 +103,13 @@
         tg.expand();
 
         order.addEventListener("click", () => {
+            document.getElementById("error").innerText = '';
+            let price_ = document.getElementById("price").value;
+            let volume_ = document.getElementById("volume").value;
+            if(price < 10) {
+                document.getElementById("error").innerText = 'Ошибка в цене';
+                return;
+            }
             tg.close();
         })
     </script>
