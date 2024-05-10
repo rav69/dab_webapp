@@ -90,10 +90,10 @@
     </div>
     <!-- <div class="feedback" > -->
     <form id="form">
-        <input type="number" required autocomplete placeholder="Стоимость в тенге" id="price">
-        <input type="number" required autocomplete placeholder="Объём двигателя" id="volume">
+        <input type="number" required placeholder="Стоимость в тенге" id="price">
+        <input type="number" required placeholder="Объём двигателя" id="volume">
         <div id="error"></div>
-        <button id="calc">Произвести расчет</button>
+        <button id="calc">Произвести111 расчет</button>
     </form>
     <!-- </div> -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -116,7 +116,7 @@
             //     document.getElementById('error').innerText = 'Ошибка в цене';
             //     return;
             // }
-            // tg.close()
+            tg.close()
         }
         calc.addEventListener('click', worker);
 
