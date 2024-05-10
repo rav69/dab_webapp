@@ -93,7 +93,8 @@
         <input type="number" required placeholder="Стоимость в тенге" id="price">
         <input type="number" required placeholder="Объём двигателя" id="volume">
         <div id="error"></div>
-        <button id="calc">Произвести111 расчет</button>
+        <button id="calc">Произвести расчет</button>
+        <button id="exit">Произвести расчет</button>
     </form>
     <!-- </div> -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -103,9 +104,10 @@
     <script>
         let tg = window.Telegram.WebApp;
         let calc = document.getElementById('calc');
+        let exit = document.getElementById('exit');
         tg.expand();
 
-        function worker() {
+        function worker_calc() {
 	        console.log("worker");
             let price_ = document.getElementById("price").value;
 	        console.log(price_);
@@ -116,9 +118,14 @@
             //     document.getElementById('error').innerText = 'Ошибка в цене';
             //     return;
             // }
+            // tg.close()
+        }
+        calc.addEventListener('click', worker_calc);
+
+        function worker_exit() {
             tg.close()
         }
-        calc.addEventListener('click', worker);
+        calc.addEventListener('click', worker_exit);
 
         // calc.addEventListener('click', () =>{
         //     calc.addEventListener('click', hello);
