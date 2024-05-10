@@ -113,11 +113,11 @@
 	        console.log(price_);
             let volume_ = document.getElementById("volume").value;
 	        console.log(volume_);
-            // if (price_ < 10) {
-            //     console.log("error");
-            //     document.getElementById('error').innerText = 'Ошибка в цене';
-            //     return;
-            // }
+            if (price_ > 0 && volume_ > 0) {
+                console.log("error");
+                document.getElementById('error').innerText = 'Ошибка в цене';
+                return;
+            }
             // tg.close()
         }
         val_calc.addEventListener('click', fun_worker_calc);
