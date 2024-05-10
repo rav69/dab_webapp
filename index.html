@@ -93,8 +93,8 @@
         <input type="number" required placeholder="Стоимость в тенге" id="price">
         <input type="number" required placeholder="Объём двигателя" id="volume">
         <div id="error"></div>
-        <button id="calc">Произвести расчет</button>
-        <button id="exit">Произвести расчет</button>
+        <button id="id_calc">Произвести расчет</button>
+        <button id="id_exit">Выход</button>
     </form>
     <!-- </div> -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -103,11 +103,11 @@
     <script language="JavaScript" type="text/javascript" src="/js/sprinkle.js"></script> -->
     <script>
         let tg = window.Telegram.WebApp;
-        let calc = document.getElementById('calc');
-        let exit = document.getElementById('exit');
+        let val_calc = document.getElementById('id_calc');
+        let val_exit = document.getElementById('id_exit');
         tg.expand();
 
-        function worker_calc() {
+        function fun_worker_calc() {
 	        console.log("worker");
             let price_ = document.getElementById("price").value;
 	        console.log(price_);
@@ -120,12 +120,12 @@
             // }
             // tg.close()
         }
-        calc.addEventListener('click', worker_calc);
+        val_calc.addEventListener('click', fun_worker_calc);
 
-        function worker_exit() {
+        function fun_worker_exit() {
             tg.close()
         }
-        calc.addEventListener('click', worker_exit);
+        val_exit.addEventListener('click', fun_worker_exit);
 
         // calc.addEventListener('click', () =>{
         //     calc.addEventListener('click', hello);
