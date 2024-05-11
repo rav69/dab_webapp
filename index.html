@@ -144,8 +144,12 @@
         // h1.innerHTML = 'hello, ' + my_name;
 
         function fun_input_data() {
-            document.getElementById("data_input").style.display = "none";
-            document.getElementById("data_calc").style.display = "block";
+            let price_ = document.getElementById("price").value;
+            let volume_ = document.getElementById("valume").value;
+            if (price_ == 11) {
+                document.getElementById("data_input").style.display = "none";
+                document.getElementById("data_calc").style.display = "block";
+            }
             // let price_ = document.getElementById("price").value;
             // let volume_ = document.getElementById("valume").value;
             // console.log(price_);
