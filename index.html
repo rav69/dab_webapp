@@ -51,17 +51,21 @@
 
         .inputbr {
             text-align: center; 
+            /* colo: var(--tg-theme-button-text-color); */
+            /* background: var(--tg-theme-button-color); */
+            /* background: var(--tg-theme-button-color); */
+            /* color-scheme: var(--tg-theme-button-color); */
         }
 
-        .feedback input {
+        .feedback_input {
             display: block;
             height: 25px;
             width: 180px;
             margin: 5px auto 1px;
             border: 1px solid black;
-            /* -webkit-border-radius: 10px;
+            -webkit-border-radius: 10px;
             -moz-border-radius: 10px;
-            -khtml-border-radius: 10px; */
+            -khtml-border-radius: 10px;
             border-radius: 10px;
             text-indent: 10px;
         }
@@ -77,7 +81,9 @@
             cursor: pointer;
             transition: all 500ms ease;
             color: var(--tg-theme-button-color);
-            background: var(--tg-theme-button-text-color);
+            /* background: var(--tg-theme-button-text-color); */
+            /* color: var(--tg-theme-button-text-color); */
+            /* background: var(--tg-theme-button-color); */
             text-align: center; 
         }
 
@@ -103,7 +109,8 @@
     <div id="calc" class="form_input_align_center">
         <p><input type='text' placeholder="Стоимость в тенге" id="price" onkeypress='validate(event)'/></p>
         <p><input type="number" required placeholder="Объём двигателя" id="volume"></p>
-        <p><button id="id_calc">Произвести расчёт</button></p>
+        <p><button id="id_calc" class="button">Произвести расчёт</button></p>
+        <!-- <p><button id="id_calc">Произвести расчёт</button></p> -->
     </div>
 
     <div id="error" class="form_data_align_center">
