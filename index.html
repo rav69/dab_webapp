@@ -10,9 +10,9 @@
         body {
             font-family: 'Montserrat', sans-serif;
             font-weight: 400;
-            /* color: var(--tg-theme-text-color); */
+            color: var(--tg-theme-text-color);
             /* color */
-            /* background: var(--tg-theme-bg-color); */
+            background: var(--tg-theme-bg-color);
         }
 
         .cr {
@@ -88,121 +88,72 @@
 </head>
 <body>
     <div id="flag">
-        <!-- <h1>Казахстан</h1> -->
         <p class="img_centr"><img src=kz.png width="100%"
             style="border: 1px solid black; border-radius: 10px;"></p>
     </div>
     <div id="main" class="main_text_align_justify">
-        <!-- <p class="text_align_justify">К заказу доступны новые автомобили.</p>
-        <p class="text_align_justify">Выберите интересующий вас автомобиль, -->
         <p>К заказу доступны новые автомобили.</p>
         <p>Выберите интересующий вас автомобиль,
             например на сайте официального дилера KIA
-            <!-- в Казахстане <b><a class="cr" href="https://www.kia.com.kz">www.kia.com.kz</a></b>, -->
-            <!-- в Казахстане <b><a href="https://www.kia.com.kz">www.kia.com.kz</a></b>, -->
             в Казахстане <b><a href="https://www.kia.com.kz" style="color: var(--tg-theme-link-color); ">www.kia.com.kz</a></b>,
             и посмотрите его стоимость. Заполните необходимые
             поля для расчета и нажмите кнопку "Произвести расчет".</p>
     </div>
 
-    <!-- <div class="feedback" > -->
-    <div id="data_input" class="form_input_align_center">
-        <form id="form_input">
-            <p><input type="number" required placeholder="Стоимость в тенге" id="price"></p>
-            <p><input type="number" required placeholder="Объём двигателя" id="volume"></p>
-            <p><button id="id_enter">Ввод</button>
-        </form</p>
+    <div id="calc" class="form_input_align_center">
+        <p><input type='text' placeholder="Стоимость в тенге" id="price" onkeypress='validate(event)'/></p>
+        <p><input type="number" required placeholder="Объём двигателя" id="volume"></p>
+        <p><button id="id_calc">Произвести расчёт</button></p>
     </div>
 
-    <div id="data_calc" class="form_data_align_center">
-        <form id="form_data">
-            <p>Вы ввели цену автомобиля: <span id="span"></span></p> 
-            Вы ввели цену автомобиля: 
-            <!-- <input type="number" readonly id="price_ro">
-            <p>Вы ввели объём автомобиля:</p>
-            <p><input type="number" readonly id="volume_ro"></p>
-            <button id="id_calc">Произвести расчет</button> -->
-        </form>
+    <div id="error" class="form_data_align_center">
+        <p>Введите корректные данные!</p>
+        <button id="id_exit">Закрыть</button>
     </div>
     
 
-    <!-- </div> -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <!-- <script language="JavaScript" type="text/javascript" src="/js/jquery-1.2.6.min.js"></script>
-    <script language="JavaScript" type="text/javascript" src="/js/jquery-ui-personalized-1.5.2.packed.js"></script>
-    <script language="JavaScript" type="text/javascript" src="/js/sprinkle.js"></script> -->
     <script>
         let tg = window.Telegram.WebApp;
-        // let val_calc = document.getElementById('id_calc');
-        let btn_enter = document.getElementById('id_enter');
-        // let val_exit = document.getElementById('id_exit');
         tg.expand();
-        // let str = 344;
 
-        // var my_name= 'Masha';
-        // var h1 = document.getElementsByTagName('h1')[0];
-        // h1.innerHTML = 'hello, ' + my_name;
+        let btn_calc = document.getElementById('id_calc');
+        let btn_exit = document.getElementById('id_exit');
 
-        function fun_input_data() {
-            let price_ = document.getElementById("price").value;
-            let volume_ = document.getElementById("valume").value;
-            if (price_ == 11) {
-                document.getElementById("data_input").style.display = "none";
-                document.getElementById("data_calc").style.display = "block";
+        function validate(evt) {
+            var theEvent = evt || window.event;
+            var key = theEvent.keyCode || theEvent.which;
+            key = String.fromCharCode( key );
+            var regex = /[0-9]/;
+            if( !regex.test(key) ) {
+                theEvent.returnValue = false;
+                if(theEvent.preventDefault) theEvent.preventDefault();
             }
-            // let price_ = document.getElementById("price").value;
-            // let volume_ = document.getElementById("valume").value;
-            // console.log(price_);
-            // if (price_ > 0) {
-            //     document.getElementById("data_input").style.display = "none";
-            // }
-            // document.getElementById("data_input").style.display = "none";
-            // console.log(volume_);
-            // setTimeout(() => {  console.log(price_); }, 2000);
         }
-        btn_enter.addEventListener('click', fun_input_data);
 
-        // function fun_worker_calc() {
-	    //     console.log("worker");
-        //     let price_ = document.getElementById("price").value;
-	    //     console.log(price_);
-        //     let volume_ = document.getElementById("volume").value;
-	    //     console.log(volume_);
-        //     price_.addEventListener('price_ro', e => span.innerText = e.target.value)
-        //     var elem = document.getElementById('price_ro');
-        //     elem.innerHTML=price_;
-        //     // document.getElementById("price_ro").innerHTML = price_;
-        //     // document.getElementById("volume_ro").innerHTML = volume_;
-        //     // if (price_ > 0 && volume_ > 0) {
-        //     //     console.log("error");
-        //     //     // document.getElementById('error').innerText = 'Ошибка в цене';
-        //     //     return;
-        //     // }
-        //     // tg.close()
-        // }
-        // val_calc.addEventListener('click', fun_worker_calc);
+        function fun_calc_data() {
+            let price_ = document.getElementById("price").value;
+            let volume_ = document.getElementById("volume").value;
+            console.log(price_);
+            console.log(volume_);
+            if (price_ == 0 || volume_ == 0) {
+                document.getElementById("calc").style.display = "none";
+                document.getElementById("error").style.display = "block";
+            }
+            else {
+                tg.close();
+            }
+        }
+        btn_calc.addEventListener('click', fun_calc_data);
 
-        // function fun_worker_exit() {
-        //     tg.close()
-        // }
-        // val_exit.addEventListener('click', fun_worker_exit);
+        function fun_exit() {
+            document.getElementById("price").value = "";
+            document.getElementById("volume").value = "";
+            document.getElementById("calc").style.display = "block";
+            document.getElementById("error").style.display = "none";
+        }
+        btn_exit.addEventListener('click', fun_exit);
 
-        // calc.addEventListener('click', () =>{
-        //     calc.addEventListener('click', hello);
-        //     // order.addEventListener("click", () => {
-        //     // document.getElementById("error").innerText = '';
-        //     setTimeout(() => {  console.log("World!"); }, 2000);
-        //     let price_ = document.getElementById("price").value;
-        //     let volume_ = document.getElementById("volume").value;
-        //     if(price < 10) {
-        //         console.log("hello");
-        //         setTimeout(() => {  console.log("World!"); }, 2000);
-        //         document.getElementById("error").innerText = 'Ошибка в цене';
-        //         console.log("hello");
-        //         // return;
-        //     }
-        //     // tg.close();
-        // })
     </script>
 </body>
 </html>
