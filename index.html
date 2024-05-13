@@ -104,6 +104,23 @@
             text-align: center; 
         }
 
+        .button_exit {
+            border: 1;
+            border-radius: 10px;
+            margin-top: 50px;
+            height: 60px;
+            width: 200px;
+            font-size: 20;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 500ms ease;
+            /* color: var(--tg-theme-button-color); */
+            /* background: var(--tg-theme-button-text-color); */
+            /* color: var(--tg-theme-button-text-color); */
+            /* background: var(--tg-theme-button-color); */
+            text-align: center; 
+        }
+
         button.hover {
             background: var(--tg-theme-secondary-bg-color);
         }
@@ -132,7 +149,7 @@
 
     <div id="error" class="form_data_align_center">
         <p>Введите корректные данные!</p>
-        <button id="id_exit">Закрыть</button>
+        <button id="id_exit" class="button_exit">Закрыть</button>
     </div>
     
 
@@ -165,6 +182,11 @@
                 document.getElementById("error").style.display = "block";
             }
             else {
+                let data = {
+                    price: price_,
+                    volume: volume_
+                }
+                tg.sendData(JSON.stringify(data));
                 tg.close();
             }
         }
