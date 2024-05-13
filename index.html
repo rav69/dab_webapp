@@ -142,7 +142,7 @@
 
     <div id="calc" class="form_input_align_center">
         <input class="button1" type='number' placeholder="Стоимость в тенге" id="price" onkeypress='validate(event)'/>
-        <p><input class="button1" type="number" placeholder="Объём двигателя" id="volume" onkeypress='validate(event)'></p>
+        <p><input class="button1" type="number" placeholder="Объём двигателя" id="capacity" onkeypress='validate(event)'></p>
         <p><button id="id_calc" class="button">Произвести расчёт</button></p>
         <!-- <p><button id="id_calc">Произвести расчёт</button></p> -->
     </div>
@@ -174,17 +174,18 @@
 
         function fun_calc_data() {
             let price_ = document.getElementById("price").value;
-            let volume_ = document.getElementById("volume").value;
+            let capacity_ = document.getElementById("capacity").value;
             console.log(price_);
-            console.log(volume_);
+            console.log(capacity_);
             if (price_ == 0 || volume_ == 0) {
                 document.getElementById("calc").style.display = "none";
                 document.getElementById("error").style.display = "block";
             }
             else {
                 let data = {
+                    country: "kzt",
                     price: price_,
-                    volume: volume_
+                    capacity: capacity_
                 }
                 tg.sendData(JSON.stringify(data));
                 tg.close();
@@ -194,7 +195,7 @@
 
         function fun_exit() {
             document.getElementById("price").value = "";
-            document.getElementById("volume").value = "";
+            document.getElementById("capacity").value = "";
             document.getElementById("calc").style.display = "block";
             document.getElementById("error").style.display = "none";
         }
