@@ -113,7 +113,7 @@
             <br>Подсказка! Цена на сайте <b>5?5.5 million won</b> означает 55000000 вон.</p>
         </div>
 
-    <!--     <div id="calc" class="div_input">
+    <!-- <div id="calc" class="div_input">
         <input type='text' placeholder="Марка, Модель" id="model">
         <input type='number' placeholder="Стоимость в тенге" id="price" onkeypress='validate(event)'>
         <input type="number" placeholder="Объём двигателя, куб.см" id="capacity" onkeypress='validate(event)'>
@@ -123,7 +123,7 @@
 
     <div id="error" class="div_attention">
         <button id="id_exit" class="button_attention">Введите данные</button>
-    </div>
+    </div> -->
     
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -131,58 +131,58 @@
         let tg = window.Telegram.WebApp;
         tg.expand();
 
-        function validate(evt) {
-            var theEvent = evt || window.event;
-            var key = theEvent.keyCode || theEvent.which;
-            key = String.fromCharCode( key );
-            var regex = /[0-9]/;
-            if( !regex.test(key) ) {
-                theEvent.returnValue = false;
-                if(theEvent.preventDefault) theEvent.preventDefault();
-            }
-        }
+    //     function validate(evt) {
+    //         var theEvent = evt || window.event;
+    //         var key = theEvent.keyCode || theEvent.which;
+    //         key = String.fromCharCode( key );
+    //         var regex = /[0-9]/;
+    //         if( !regex.test(key) ) {
+    //             theEvent.returnValue = false;
+    //             if(theEvent.preventDefault) theEvent.preventDefault();
+    //         }
+    //     }
 
-        let btn_calc = document.getElementById('id_calc');
-        btn_calc.addEventListener('click', fun_calc_data);
-        function fun_calc_data() {
-            let model_ = document.getElementById("model").value;
-            let price_ = document.getElementById("price").value;
-            let capacity_ = document.getElementById("capacity").value;
-            // let mileage_ = document.getElementById("mileage").value;
+    //     let btn_calc = document.getElementById('id_calc');
+    //     btn_calc.addEventListener('click', fun_calc_data);
+    //     function fun_calc_data() {
+    //         let model_ = document.getElementById("model").value;
+    //         let price_ = document.getElementById("price").value;
+    //         let capacity_ = document.getElementById("capacity").value;
+    //         // let mileage_ = document.getElementById("mileage").value;
 
-            console.log(model_);
-            console.log(price_);
-            console.log(capacity_);
-            // console.log(mileage_);
-            if (price_ == 0 || capacity_ == 0) {
-                document.getElementById("calc").style.display = "none";
-                document.getElementById("error").style.display = "block";
-            }
-            else {
-                let data = {
-                    country: "Казахстан",
-                    model: model_,
-                    age: "Новый",
-                    price: price_,
-                    capacity: capacity_,
-                    mileage: 0
-                }
-                tg.sendData(JSON.stringify(data));
-                tg.close();
-            }
-        }
+    //         console.log(model_);
+    //         console.log(price_);
+    //         console.log(capacity_);
+    //         // console.log(mileage_);
+    //         if (price_ == 0 || capacity_ == 0) {
+    //             document.getElementById("calc").style.display = "none";
+    //             document.getElementById("error").style.display = "block";
+    //         }
+    //         else {
+    //             let data = {
+    //                 country: "Казахстан",
+    //                 model: model_,
+    //                 age: "Новый",
+    //                 price: price_,
+    //                 capacity: capacity_,
+    //                 mileage: 0
+    //             }
+    //             tg.sendData(JSON.stringify(data));
+    //             tg.close();
+    //         }
+    //     }
 
-        let btn_exit = document.getElementById('id_exit');
-        btn_exit.addEventListener('click', fun_exit);
-        function fun_exit() {
-            document.getElementById("model").value = "";
-            document.getElementById("price").value = "";
-            document.getElementById("capacity").value = "";
-            // document.getElementById("mileage").value = "";
-            document.getElementById("calc").style.display = "block";
-            document.getElementById("error").style.display = "none";
-        }
+    //     let btn_exit = document.getElementById('id_exit');
+    //     btn_exit.addEventListener('click', fun_exit);
+    //     function fun_exit() {
+    //         document.getElementById("model").value = "";
+    //         document.getElementById("price").value = "";
+    //         document.getElementById("capacity").value = "";
+    //         // document.getElementById("mileage").value = "";
+    //         document.getElementById("calc").style.display = "block";
+    //         document.getElementById("error").style.display = "none";
+    //     }
 
-    </script> -->
+    // </script>
 </body>
 </html>
