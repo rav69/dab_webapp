@@ -170,7 +170,7 @@
         <input type='text' placeholder="Марка, Модель" id="model">
         <input type='number' placeholder="Стоимость в тенге" id="price" onkeypress='validate(event)'>
         <input type="number" placeholder="Объём двигателя, куб.см" id="capacity" onkeypress='validate(event)'>
-        <input type="number" placeholder="Пробег, км" id="mileage" onkeypress='validate(event)'>
+        <!-- <input type="number" placeholder="Пробег, км" id="mileage" onkeypress='validate(event)'> -->
         <button id="id_calc" class="button">Произвести расчёт</button>
     </div>
 
@@ -202,11 +202,12 @@
             let model_ = document.getElementById("model").value;
             let price_ = document.getElementById("price").value;
             let capacity_ = document.getElementById("capacity").value;
-            let mileage_ = document.getElementById("mileage").value;
+            // let mileage_ = document.getElementById("mileage").value;
 
+            console.log(model_);
             console.log(price_);
             console.log(capacity_);
-            console.log(mileage_);
+            // console.log(mileage_);
             if (price_ == 0 || capacity_ == 0) {
                 document.getElementById("calc").style.display = "none";
                 document.getElementById("error").style.display = "block";
@@ -218,7 +219,7 @@
                     age: "Новый",
                     price: price_,
                     capacity: capacity_,
-                    mileage: mileage_
+                    mileage: 0
                 }
                 tg.sendData(JSON.stringify(data));
                 tg.close();
