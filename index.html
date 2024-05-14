@@ -88,8 +88,8 @@
 
         .button1 {
             border: 1px;
-            border-radius: 10px;
-            margin-top: 1px;
+            border-radius: 1px;
+            margin-top: 5px;
             height: 40px;
             width: 200px;
             font-size: 15px;
@@ -123,6 +123,16 @@
         button.hover {
             background: var(--tg-theme-secondary-bg-color);
         }
+
+        input {
+            width: 70%;
+            outline: none;
+            margin: 2px 5%;
+            padding: 10px 10px;
+            font-size: 15px;
+            border: 2px solid silver;
+            border-radius: 5px;
+        }
        </style>
 </head>
 <body>
@@ -140,10 +150,14 @@
     </div>
 
     <div id="calc" class="form_input_align_center">
-        <p><input class="button1" type='text' placeholder="Марка, Модель" id="model"></p>
+        <!-- <p><input class="button1" type='text' placeholder="Марка, Модель" id="model"></p>
         <p><input class="button1" type='number' placeholder="Стоимость в тенге" id="price" onkeypress='validate(event)'></p>
         <p><input class="button1" type="number" placeholder="Объём двигателя, куб.см" id="capacity" onkeypress='validate(event)'></p>
-        <p><input class="button1" type="number" placeholder="Пробег, км" id="capacity" onkeypress='validate(event)'></p>
+        <p><input class="button1" type="number" placeholder="Пробег, км" id="mileage" onkeypress='validate(event)'></p> -->
+        <input type='text' placeholder="Марка, Модель" id="model">
+        <input type='number' placeholder="Стоимость в тенге" id="price" onkeypress='validate(event)'>
+        <input type="number" placeholder="Объём двигателя, куб.см" id="capacity" onkeypress='validate(event)'>
+        <input type="number" placeholder="Пробег, км" id="mileage" onkeypress='validate(event)'>
         <p><button id="id_calc" class="button">Произвести расчёт</button></p>
     </div>
 
@@ -158,9 +172,6 @@
         let tg = window.Telegram.WebApp;
         tg.expand();
 
-        let btn_calc = document.getElementById('id_calc');
-        let btn_exit = document.getElementById('id_exit');
-
         function validate(evt) {
             var theEvent = evt || window.event;
             var key = theEvent.keyCode || theEvent.which;
@@ -172,11 +183,17 @@
             }
         }
 
+        let btn_calc = document.getElementById('id_calc');
+        btn_calc.addEventListener('click', fun_calc_data);
         function fun_calc_data() {
+            let model_ = document.getElementById("model").value;
             let price_ = document.getElementById("price").value;
             let capacity_ = document.getElementById("capacity").value;
+            let mileage_ = document.getElementById("mileage").value;
+
             console.log(price_);
             console.log(capacity_);
+            console.log(mileage_);
             if (price_ == 0 || capacity_ == 0) {
                 document.getElementById("calc").style.display = "none";
                 document.getElementById("error").style.display = "block";
@@ -184,25 +201,27 @@
             else {
                 let data = {
                     country: "Казахстан",
-                    model: model,
+                    model: model_,
                     age: "новый",
                     price: price_,
                     capacity: capacity_,
-                    mileage: mileage
+                    mileage: mileage_
                 }
                 tg.sendData(JSON.stringify(data));
                 tg.close();
             }
         }
-        btn_calc.addEventListener('click', fun_calc_data);
 
+        let btn_exit = document.getElementById('id_exit');
+        btn_exit.addEventListener('click', fun_exit);
         function fun_exit() {
+            document.getElementById("model").value = "";
             document.getElementById("price").value = "";
             document.getElementById("capacity").value = "";
+            document.getElementById("mileage").value = "";
             document.getElementById("calc").style.display = "block";
             document.getElementById("error").style.display = "none";
         }
-        btn_exit.addEventListener('click', fun_exit);
 
     </script>
 </body>
