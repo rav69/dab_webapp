@@ -104,7 +104,20 @@
             text-indent: 10px;
         }
 
-</style>
+        .radio_line {
+            /* Назначаем div флекс-контейнером, 
+            по умолчанию элементы располагаются в строку */
+            display: flex;
+            /* Задаем выравнивание элементов: с одинаковым расстоянием между ними */
+            justify-content: space-between;
+        }
+
+        .input_r {
+            /* width: 15%; */
+            /* width: 90%; */
+            height: 20px;
+        }
+    </style>
 </head>
 <body>
     <div id="id_flag">
@@ -133,9 +146,12 @@
         <!-- <input type="radio" id="new">
         <input type="radio" id="1_3">
         <input type="radio" id="3_5"> -->
-	    <input type="radio" style="align-self: left;" name="age" value="1" checked> Мужской
-	    <input type="radio" name="age" value="2"> Женский
-	    <input type="radio" name="age" value="3"> Другsой<br>
+	    <div class="radio_line">
+            <input class="input_r" type="radio" name="age" value="1" checked> Мужской
+            <input class="input_r" type="radio" name="age" value="2"> Женский
+            <input class="input_r" type="radio" name="age" value="3"> Другой
+        </div>
+        
         <button id="id_calc_btn" class="button_calc">Произвести расчёт</button>
     </div>
 
