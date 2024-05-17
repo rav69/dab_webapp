@@ -114,10 +114,20 @@
             margin-top: 10px;
         }
 
+        .radio_line_l {
+            /* Назначаем div флекс-контейнером, 
+            по умолчанию элементы располагаются в строку */
+            display: flex;
+            /* Задаем выравнивание элементов: с одинаковым расстоянием между ними */
+            justify-content: space-around;
+            /* justify-content: space-between; */
+            margin-top: 5px;
+        }
+
         .input_r {
             /* width: 15%; */
             /* width: 90%; */
-            margin: 0px 0px 0px 0px;
+            /* margin: 0px 0px 0px 0px; */
             height: 20px;
         }
     </style>
@@ -154,7 +164,7 @@
             <input class="input_r" type="radio" name="age" value="2">
             <input class="input_r" type="radio" name="age" value="3">
         </div>
-	    <div class="radio_line">
+	    <div class="radio_line_l">
             <div><label class="input_r">Новый</label></div>
             <div><label class="input_r">1-3 года</label></div>
             <div><label class="input_r">3-5 лет</label></div>
