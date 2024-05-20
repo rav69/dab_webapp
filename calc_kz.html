@@ -144,6 +144,7 @@
             document.getElementById("model").value = "";
             document.getElementById("price").value = "";
             document.getElementById("capacity").value = "";
+            document.getElementById("id_flag").style.display = "none";
             document.getElementById("id_input_data").style.display = "none";
             document.getElementById("id_main_text").style.display = "none";
             document.getElementById("id_input_data_form").style.display = "block";
@@ -170,6 +171,7 @@
             console.log(price_);
             console.log(capacity_);
             if (price_ == 0 || capacity_ == 0) {
+                document.getElementById("id_flag").style.display = "block";
                 document.getElementById("id_input_data").style.display = "block";
                 document.getElementById("id_main_text").style.display = "block";
                 document.getElementById("id_input_data_form").style.display = "none";
