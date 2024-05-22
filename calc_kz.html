@@ -152,8 +152,11 @@
 
         function validate(evt) {
             var theEvent = evt || window.event;
+            console.log('test1' + theEvent);
             var key = theEvent.keyCode || theEvent.which;
+            console.log('test2' + key);
             key = String.fromCharCode( key );
+            console.log('test3' + key);
             var regex = /[0-9]/;
             if( !regex.test(key) ) {
                 theEvent.returnValue = false;
