@@ -80,7 +80,7 @@
         }
 
         input {
-            width: 90%;
+            width: 100%;
             height: 40px;
             /* outline: none; */
             margin: 10px 0px 0px 0px;
@@ -132,44 +132,46 @@
             height: 20px;
         }
 
-        .calc_key {
-            /* Назначаем div флекс-контейнером, 
-            по умолчанию элементы располагаются в строку */
-            display: flex;
-            /* Задаем выравнивание элементов: с одинаковым расстоянием между ними */
-            /* justify-content: space-around; */
-            justify-content: space-between;
-            /* margin-top: 5px; */
-            margin: 0px 0px 0px 0px;
-        }
-
         .footer {
             position: fixed;
             left: 0;
             bottom: 0;
             /* Добавим цвет и ширину блока для наглядности*/
             /* background-color:white; */
-            background-color:var(--tg-theme-bg-color);
+            background-color: var(--tg-theme-bg-color);
             width: 100%;
+        }
+
+        .calc_key {
+            /* Назначаем div флекс-контейнером, 
+            по умолчанию элементы располагаются в строку */
+            display: flex;
+            /* Задаем выравнивание элементов: с одинаковым расстоянием между ними */
+            /* justify-content: space-around; */
+            /* justify-content: space-between; */
+            /* margin-top: 5px; */
+            /* margin: 0px 0px 0px 0px; */
         }
 
         .footer_button {
-            position: fixed;
+            /* position: fixed;
             left: 0;
-            bottom: 0;
+            bottom: 0;*/
             /* Добавим цвет и ширину блока для наглядности*/
             /* background-color:white; */
-            color: var(--tg-theme-button-text-color);
+            /* color: var(--tg-theme-button-text-color);
             background: var(--tg-theme-button-color);
             background-color:var(--tg-theme-bg-color);
-            width: 100%;
+            width: 100%; */
+            /* margin: 0px; */
         }
 
         .button_keyboard {
-            width: 100%;
+            /* width: 100%; */
             /* border: 2px solid var(--tg-theme-button-color); */
-            border: 20px solid ;
-            border-radius: 120px;
+            /* border: 2px solid ; */
+            border-radius: 20px;
+            margin: 0px 0px 10px px;
         }
 </style>
 </head>
@@ -214,25 +216,25 @@
     </div>
 
     <footer class="footer">
-        <div id="VirtualKey" style="margin: 0px 20px 20px 20px;">
+        <div id="VirtualKey" style="margin: 0px 20px 15px 20px;">
             <div class="calc_key">
-                <div class="button_keyboard"><input id="btn1" type="button" value="1" onclick="input(this);"/></div>
-                <div class="button_keyboard"><input id="btn2" type="button" value="2" onclick="input(this);"/></div>
-                <div class="button_keyboard"><input id="btn3" type="button" value="3" onclick="input(this);"/></div>
+                <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btn1" type="button" value="1" onclick="input(this);"/></div>
+                <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btn2" type="button" value="2" onclick="input(this);"/></div>
+                <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btn3" type="button" value="3" onclick="input(this);"/></div>
             </div>
             <div class="calc_key">
-                <div class="button_keyboard"><input id="btn4" type="button" value="4" onclick="input(this);" /></div>
-                <div class="button_keyboard"><input id="btn5" type="button" value="5" onclick="input(this);" /></div>
-                <div class="button_keyboard"><input id="btn6" type="button" value="6" onclick="input(this);" /></div>
+                <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btn4" type="button" value="4" onclick="input(this);" /></div>
+                <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btn5" type="button" value="5" onclick="input(this);" /></div>
+                <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btn6" type="button" value="6" onclick="input(this);" /></div>
             </div>
             <div class="calc_key">
-                <div class="button_keyboard"><input id="btn7" type="button" value="7" onclick="input(this);" /></div>
-                <div class="button_keyboard"><input id="btn7" type="button" value="8" onclick="input(this);" /></div>
-                <div class="button_keyboard"><input id="btn8" type="button" value="9" onclick="input(this);" /></div>
+                <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btn7" type="button" value="7" onclick="input(this);" /></div>
+                <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btn7" type="button" value="8" onclick="input(this);" /></div>
+                <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btn8" type="button" value="9" onclick="input(this);" /></div>
             </div>
             <div class="calc_key">
-                <div class="button_keyboard"><input id="btn0" type="button" value="0" onclick="input(this);" /></div>
-                <div class="button_keyboard"><input id="btnDel" type="button" value="B" onclick="del(this);" /></div>
+                <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btn0" type="button" value="0" onclick="input(this);" /></div>
+                <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btnDel" type="button" value="Del" onclick="del(this);" /></div>
                 <!-- <div><input id="btnDel" type="button" value="Backspace" onclick="del(this);" /></div> -->
             </div>
         </div>
