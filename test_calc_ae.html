@@ -172,13 +172,13 @@
             /* border: 2px solid ; */
             border-radius: 20px;
             margin: 0px 0px 10px px;
-            background: var(--tg-theme-button-color);
-            color: var(--tg-theme-button-text-color);
+            /* background: var(--tg-theme-button-color);
+            color: var(--tg-theme-button-text-color); */
         }
 </style>
 </head>
 <body>
-    <div id="id_flag">
+    <!-- <div id="id_flag">
         <p class="img"><img src=img/ae.png width="98%"
             style="border: 1px solid black; border-radius: 10px;"></p>
     </div>
@@ -215,29 +215,39 @@
         </div>
         
         <button id="id_calc_btn" class="button_calc">Произвести расчёт</button>
-    </div>
-
+    </div> -->
+    <input id="tbInput" type="text"/>
     <footer class="footer">
         <div id="VirtualKey" style="margin: 0px 20px 15px 20px;">
             <div class="calc_key">
-                <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btn1" type="button" value="1" onclick="input(this);"/></div>
+                <div><button class="button_calc" id="btn1" value="1" onclick="input(this);">1</button></div>
+                <div><button class="button_calc" id="btn2" value="2" onclick="input(this);">2</button></div>
+                <div><button class="button_calc" id="btn3" value="3" onclick="input(this);">3</button></div>
+                <!-- <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btn1" type="button" value="1" onclick="input(this);"/></div>
                 <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btn2" type="button" value="2" onclick="input(this);"/></div>
-                <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btn3" type="button" value="3" onclick="input(this);"/></div>
+                <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btn3" type="button" value="3" onclick="input(this);"/></div> -->
             </div>
             <div class="calc_key">
-                <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btn4" type="button" value="4" onclick="input(this);" /></div>
-                <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btn5" type="button" value="5" onclick="input(this);" /></div>
-                <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btn6" type="button" value="6" onclick="input(this);" /></div>
+                <div><button class="button_calc" id="btn4" value="4" onclick="input(this);">4</button></div>
+                <div><button class="button_calc" id="btn5" value="5" onclick="input(this);">5</button></div>
+                <div><button class="button_calc" id="btn6" value="6" onclick="input(this);">6</button></div>
+                <!-- <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input  class="button_keyboard" id="btn4" type="button" value="4" onclick="input(this);" /></div>
+                <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input  class="button_keyboard" id="btn5" type="button" value="5" onclick="input(this);" /></div>
+                <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input  class="button_keyboard" id="btn6" type="button" value="6" onclick="input(this);" /></div> -->
             </div>
             <div class="calc_key">
-                <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btn7" type="button" value="7" onclick="input(this);" /></div>
+                <div><button class="button_calc" id="btn7" value="7" onclick="input(this);">7</button></div>
+                <div><button class="button_calc" id="btn8" value="8" onclick="input(this);">8</button></div>
+                <div><button class="button_calc" id="btn9" value="9" onclick="input(this);">9</button></div>
+                <!-- <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btn7" type="button" value="7" onclick="input(this);" /></div>
                 <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btn7" type="button" value="8" onclick="input(this);" /></div>
-                <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btn8" type="button" value="9" onclick="input(this);" /></div>
+                <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btn8" type="button" value="9" onclick="input(this);" /></div> -->
             </div>
             <div class="calc_key">
-                <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btn0" type="button" value="0" onclick="input(this);" /></div>
-                <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btnDel" type="button" value="Del" onclick="del(this);" /></div>
-                <!-- <div><input id="btnDel" type="button" value="Backspace" onclick="del(this);" /></div> -->
+                <div><button class="button_calc" id="btn0" value="0" onclick="input(this);">0</button></div>
+                <div><button class="button_calc" id="btnDel" onclick="del(this);">Del</button></div>
+                <!-- <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btn0" type="button" value="0" onclick="input(this);" /></div>
+                <div style="width: 100%; margin-left: 5px; margin-right: 5px;"><input class="button_keyboard" id="btnDel" type="button" value="Del" onclick="del(this);" /></div> -->
             </div>
         </div>
     </footer>
@@ -247,8 +257,18 @@
         let tg = window.Telegram.WebApp;
         tg.expand();
 
+        function input(e) {
+            var tbInput = document.getElementById("tbInput");
+            tbInput.value = tbInput.value + e.value;
+        }
+
+        function del() {
+            var tbInput = document.getElementById("tbInput");
+            tbInput.value = tbInput.value.substr(0, tbInput.value.length - 1);
+        }
+
         let btn_exit = document.getElementById('id_input_data_btn');
-        btn_exit.addEventListener('click', fun_exit);
+        if (btn_exit) btn_exit.addEventListener('click', fun_exit);
         function fun_exit() {
             document.getElementById("model").value = "";
             document.getElementById("price").value = "";
@@ -275,7 +295,7 @@
         }
 
         let btn_calc = document.getElementById('id_calc_btn');
-        btn_calc.addEventListener('click', fun_calc_data);
+        if (btn_calc) btn_calc.addEventListener('click', fun_calc_data);
         function fun_calc_data() {
             let model_ = document.getElementById("model").value;
             let price_ = document.getElementById("price").value;
