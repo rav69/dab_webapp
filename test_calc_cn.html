@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="путь к CSS файлу"> -->
+    <!-- </linkrel> -->
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            color: var(--tg-theme-text-color);
+            /* color */
+            background: var(--tg-theme-bg-color);
+        }
+
+        .img {
+            text-align: center; 
+            margin: 20px 10px 10px 10px;
+        }
+
+        .div_main_text {
+            text-align: justify;
+            margin: 50px 10px 50px 10px; 
+        }
+
+        .div_input_form {
+            display: none;
+            text-align: center;
+            margin: 50px 0px 0px 0px; 
+        }
+
+        .div_input_data_btn {
+            /* height: 150px; */
+            /* border: 10px black;
+            border-radius: 10px; */
+            /* display: none; */
+            text-align: center;
+            /* margin: 10px 10px 30px 10px;  */
+            /* margin: 10px 10px 10px 10px;  */
+            /* background: rgb(231, 53, 53); */
+        }
+
+        .button_calc {
+            border-radius: 8px;
+            /* margin-top: 30px; */
+            margin: 10px 0px 0px 0px;
+            height: 50px;
+            /* align: center; */
+            width: 60%;
+            font-size: 20;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 500ms ease;
+            background: var(--tg-theme-button-color);
+            color: var(--tg-theme-button-text-color);
+            font-size: 18px;
+        }
+
+        .button_input {
+            border-radius: 8px;
+            /* margin-top: 30px; */
+            /* margin: 0px 0px 0px 0px; */
+            height: 50px;
+            /* align: center; */
+            width: 60%;
+            font-size: 20;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 500ms ease;
+            background: var(--tg-theme-button-color);
+            color: var(--tg-theme-button-text-color);
+            font-size: 18px;
+        }
+
+        button.hover {
+            background: var(--tg-theme-secondary-bg-color);
+        }
+
+        input {
+            width: 90%;
+            height: 40px;
+            /* outline: none; */
+            margin: 10px 0px 0px 0px;
+            /* padding-left: 5px; */
+            /* padding: 5px 10px; */
+            font-size: 18px;
+            /* border: 2px solid silver; */
+            border: 2px solid var(--tg-theme-button-color);
+            border-radius: 8px;
+        }
+
+        .feedback_input {
+            display: block;
+            height: 25px;
+            width: 180px;
+            margin: 5px auto 1px;
+            border: 1px solid black;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -khtml-border-radius: 10px;
+            border-radius: 10px;
+            text-indent: 10px;
+        }
+
+</style>
+</head>
+<body>
+    <div id="id_flag">
+        <p class="img"><img src=img/cn.png width="98%"
+            style="border: 1px solid black; border-radius: 10px;"></p>
+    </div>
+    <div id="id_main_text" class="div_main_text">
+        <p>К заказу доступны новые автомобили.</p>
+        <p>Выберите интересующий вас автомобиль,
+            например на сайте <b><a href="https://autohome.com.cn" target="_blank" style="color: var(--tg-theme-link-color); ">www.autohome.com.cn</a></b>,
+            (при необходимости включите перевод на английский язык) и посмотрите его стоимость в юанях. Нажмите кнопку "Ввод данных". Заполните необходимые
+            поля для расчета и нажмите кнопку "Произвести расчет".
+            <br>Поле "Марка, Модель" заполняется для справки.</p>
+    </div>
+
+    <div id="id_input_data" class="div_input_data_btn">
+        <button id="id_input_data_btn" class="button_input">Ввод данных</button>
+    </div>
+
+    <div id="id_input_data_form" class="div_input_form">
+        <input type='text' placeholder="Марка, Модель" id="model">
+        <input type='number' placeholder="Стоимость в юанях" id="price" onkeypress='validate(event)'>
+        <input type="number" placeholder="Объём двигателя, куб.см" id="capacity" onkeypress='validate(event)'>
+        <button id="id_calc_btn" class="button_calc">Произвести расчёт</button>
+    </div>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        let tg = window.Telegram.WebApp;
+        tg.expand();
+
+        let btn_exit = document.getElementById('id_input_data_btn');
+        btn_exit.addEventListener('click', fun_exit);
+        function fun_exit() {
+            document.getElementById("model").value = "";
+            document.getElementById("price").value = "";
+            document.getElementById("capacity").value = "";
+            document.getElementById("id_flag").style.display = "none";
+            document.getElementById("id_input_data").style.display = "none";
+            document.getElementById("id_main_text").style.display = "none";
+            document.getElementById("id_input_data_form").style.display = "block";
+        }
+
+        function validate(evt) {
+            var theEvent = evt || window.event;
+            var key = theEvent.keyCode || theEvent.which;
+            key = String.fromCharCode( key );
+            var regex = /[0-9]/;
+            if( !regex.test(key) ) {
+                theEvent.returnValue = false;
+                if(theEvent.preventDefault) theEvent.preventDefault();
+            }
+        }
+
+        let btn_calc = document.getElementById('id_calc_btn');
+        btn_calc.addEventListener('click', fun_calc_data);
+        function fun_calc_data() {
+            let model_ = document.getElementById("model").value;
+            let price_ = document.getElementById("price").value;
+            let capacity_ = document.getElementById("capacity").value;
+            console.log(model_);
+            console.log(price_);
+            console.log(capacity_);
+            if (price_ == 0 || capacity_ == 0) {
+                document.getElementById("id_flag").style.display = "block";
+                document.getElementById("id_input_data").style.display = "block";
+                document.getElementById("id_main_text").style.display = "block";
+                document.getElementById("id_input_data_form").style.display = "none";
+            }
+            else {
+                let data = {
+                    country: "Китай",
+                    model: model_,
+                    age: "Новый",
+                    price: price_,
+                    capacity: capacity_,
+                    mileage: 0
+                }
+                tg.sendData(JSON.stringify(data));
+                tg.close();
+            }
+        }
+    </script>
+</body>
+</html>
