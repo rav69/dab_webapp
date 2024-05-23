@@ -8,9 +8,7 @@
     <!-- </linkrel> -->
     <style>
         body {
-            margin-top: 20px;
-            margin-left: 20px;
-            margin-right: 20px;
+            margin: 20px;
             font-family: 'Montserrat', sans-serif;
             font-weight: 400;
             color: var(--tg-theme-text-color);
@@ -19,16 +17,13 @@
 
 
         .img {
-            /* text-align: center; 
-            margin: 20px 10px 10px 10px; */
             width: 100%;
             border: 1px solid black;
             border-radius: 10px;
         }
 
-        .div_main_text {
+        .main_text {
             text-align: justify;
-            margin: 50px 10px 50px 10px; 
         }
 
         .div_input_form {
@@ -116,7 +111,10 @@
     <div id="id_flag">
         <img class="img" id="id_img" src=img/kz.png>
     </div>
-    <div id="id_main_text" class="div_main_text">
+
+    <div style="height: 50px;"></div>
+
+    <div id="id_main_text" class="main_text">
         <p>К заказу доступны новые автомобили.</p>
         <p>Выберите интересующий вас автомобиль,
             например на сайте официального дилера KIA
@@ -125,6 +123,8 @@
             поля для расчета и нажмите кнопку "Произвести расчет".
             <br>Поле "Марка, Модель" заполняется для справки.</p>
     </div>
+
+    <div style="height: 50px;"></div>
 
     <div id="id_input_data" class="div_input_data_btn">
         <button id="id_input_data_btn" class="button_input">Ввод данных</button>
