@@ -8,16 +8,20 @@
     <!-- </linkrel> -->
     <style>
         body {
+            margin: 20px;
             font-family: 'Montserrat', sans-serif;
             font-weight: 400;
             color: var(--tg-theme-text-color);
-            /* color */
             background: var(--tg-theme-bg-color);
         }
 
+
         .img {
-            text-align: center; 
-            margin: 20px 10px 10px 10px;
+            /* text-align: center; 
+            margin: 20px 10px 10px 10px; */
+            width: 100%;
+            border: 1px solid black;
+            border-radius: 10px;
         }
 
         .div_main_text {
@@ -108,8 +112,7 @@
 </head>
 <body>
     <div id="id_flag">
-        <p class="img"><img src=img/kz.png width="98%"
-            style="border: 1px solid black; border-radius: 10px;"></p>
+        <img class="img" id="id_img" src=img/kz.png>
     </div>
     <div id="id_main_text" class="div_main_text">
         <p>К заказу доступны новые автомобили.</p>

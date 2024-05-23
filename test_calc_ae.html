@@ -176,7 +176,7 @@
         }
 </style>
 </head>
-<body>
+<body onclick="myFunction1()">
     <!-- <div id="id_flag">
         <p class="img"><img src=img/ae.png width="98%"
             style="border: 1px solid black; border-radius: 10px;"></p>
@@ -196,11 +196,10 @@
     </div> -->
 
     <div id="id_input_data_form" class="div_input_form">
-        <input type='text' placeholder="Марка, Модель" id="model">
-        <input inputmode='none' placeholder="Свыаыватоимость в дх" id="price" onkeypress='validate(event)'>
-        <input type='number' placeholder="Стоимость в дирхамах" id="price" onkeypress='validate(event)'>
-        <input type="number" inputmode='none' placeholder="Объём двигателя, куб.см" id="capacity" onkeypress='validate(event)'>
-        <input type="number" inputmode='none' placeholder="Пробег, км" id="mileage" onkeypress='validate(event)'>
+        <input type='text' placeholder="Марка, Модель" id="model" maxlength="100">
+        <input inputmode='none' placeholder="Стоимость в дирхамах" id="price" maxlength="10" onclick="choise(this)";>
+        <input inputmode='none' placeholder="Объём двигателя, куб.см" id="capacity" maxlength="10"  onclick="choise(this)">
+        <input inputmode='none' placeholder="Пробег, км" id="mileage" maxlength="6" onclick="choise(this)">
 
         <div class="radio_line">
             <input class="input_r" type="radio" name="age" id="new" checked>
@@ -219,7 +218,7 @@
     <input id="tbInput" type="text"/>
 
     <footer class="footer">
-        <div id="VirtualKey" style="margin: 0px 20px 15px 20px;">
+        <div id="id_virtual_key" style="margin: 0px 20px 15px 20px; display: none;">
             <div class="calc_key">
                 <div><button class="button_calc" id="btn1" value="1" onclick="input(this);">1</button></div>
                 <div><button class="button_calc" id="btn2" value="2" onclick="input(this);">2</button></div>
@@ -257,6 +256,15 @@
     <script>
         let tg = window.Telegram.WebApp;
         tg.expand();
+
+        function myFunction1() {
+            console.log("ALL");
+        }
+
+        function choise(e) {
+        console.log(e.id);
+        document.getElementById("id_virtual_key").style.display="block"
+        }
 
         function input(e) {
             var tbInput = document.getElementById("tbInput");
