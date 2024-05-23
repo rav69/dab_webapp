@@ -11,9 +11,8 @@
             height: 100%;
             font-family: 'Montserrat', sans-serif;
             font-weight: 400;
-            color: var(--tg-theme-text-color);
-            /* color */
-            background: var(--tg-theme-bg-color);
+            /* color: var(--tg-theme-text-color); */
+            /* background: var(--tg-theme-bg-color); */
         }
 
         .img {
@@ -178,7 +177,7 @@
 </style>
 </head>
 <body>
-    <!-- <div id="id_flag">
+    <div id="id_flag">
         <p class="img"><img src=img/ae.png width="98%"
             style="border: 1px solid black; border-radius: 10px;"></p>
     </div>
@@ -199,8 +198,8 @@
     <div id="id_input_data_form" class="div_input_form">
         <input type='text' placeholder="Марка, Модель" id="model">
         <input type='number' placeholder="Стоимость в дирхамах" id="price" onkeypress='validate(event)'>
-        <input type="number" placeholder="Объём двигателя, куб.см" id="capacity" onkeypress='validate(event)'>
-        <input type="number" placeholder="Пробег, км" id="mileage" onkeypress='validate(event)'>
+        <input type="number" inputmode="none" placeholder="Объём двигателя, куб.см" id="capacity" onkeypress='validate(event)'>
+        <input type="number" inputmode="none" placeholder="Пробег, км" id="mileage" onkeypress='validate(event)'>
 
         <div class="radio_line">
             <input class="input_r" type="radio" name="age" id="new" checked>
@@ -215,8 +214,9 @@
         </div>
         
         <button id="id_calc_btn" class="button_calc">Произвести расчёт</button>
-    </div> -->
+    </div>
     <input id="tbInput" type="text"/>
+
     <footer class="footer">
         <div id="VirtualKey" style="margin: 0px 20px 15px 20px;">
             <div class="calc_key">
