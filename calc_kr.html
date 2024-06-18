@@ -142,10 +142,10 @@
             <p>Выберите интересующий вас автомобиль, например на сайте
                 <b><a href="https://encar.com" target="_blank" style="color: var(--tg-theme-link-color); ">www.encar.com</a></b>
                 (при необходимости включите перевод на английский язык) и посмотрите его стоимость в вонах.
-                Заполните необходимые поля для расчета и нажмите кнопку "Произвести расчет".
-                <br>Поле "Марка, Модель" и "Пробег" заполняется для справки.</p>
+                Заполните необходимые поля для расчета и нажмите кнопку "Произвести расчет".</p>
+            <p>В выпадающих списках выберите "Марку" и "Модель". Эти поля, а также поле "Пробег" заполняются для записи в результат расчета.</p>
             <p>Подсказка! Цена на сайте <b>5?5.5 million won</b> означает 55500000 вон.</p>
-            </div>
+        </div>
     
         <div id="id_delimiter2" class="delimiter"></div>
     
@@ -261,7 +261,7 @@
             // console.log(mileage_);
             // console.log(document.getElementById("1_3").checked);
             // console.log(document.getElementById("3_5").checked);
-            if (price_ == 0 || capacity_ == 0) {
+            if (model_ == 0 || price_ == 0 || capacity_ == 0) {
                 document.getElementById("id_info").style.display = "block";
                 document.getElementById("id_div_input_data_form").style.display = "none";
             }
