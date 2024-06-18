@@ -184,11 +184,9 @@
 
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 
-<script>
+    <script>
         let tg = window.Telegram.WebApp;
         tg.expand();
-        let br = '';
-        let mod = '';
 
         window.onload = function () {
             var brandSelect = document.getElementById('brands');
@@ -202,15 +200,11 @@
             });
 
             brandSelect.onchange = function () {
-                console.log("brand.name");
-                // br = brand.name;
                 modelSelect.length = 0; // clear out existing items
                 var models = db_cars[this.value].models;
                 models.forEach(function (model) {
                     var option = document.createElement('option');
                     option.text = model.name;
-                    // mod = model.name;
-                    console.log("modec l.name");
                     modelSelect.add(option);
                 });
             };
@@ -219,8 +213,9 @@
         let btn_exit = document.getElementById('id_input_data_btn');
         btn_exit.addEventListener('click', fun_exit);
         function fun_exit() {
-            document.getElementById("brands").value = "";
-            document.getElementById("models").value = "";
+            document.getElementById("brands").value = 0;
+            // document.getElementById("models").value = "";
+            $("#models option").remove();
             document.getElementById("price").value = "";
             document.getElementById("capacity").value = "";
             document.getElementById("mileage").value = "";

@@ -59,6 +59,14 @@
             border-radius: 8px;
         }
 
+        select {
+            height: 46px;
+            width: 92%;
+            font-size: 18px;
+            border: 2px solid var(--tg-theme-button-color);
+            border-radius: 8px;
+        }
+
         .delimiter_input {
             height: 30px;
         }
@@ -106,12 +114,14 @@
             <p>К заказу доступны новые автомобили.</p>
             <p>Выберите интересующий вас автомобиль,
                 например на сайте официального дилера
-                <br>KIA <b><a href="https://kia.com.kz" target="_blank" style="color: var(--tg-theme-link-color); ">www.kia.com.kz</a></b>
+                KIA <b><a href="https://kia.com.kz" target="_blank" style="color: var(--tg-theme-link-color); ">www.kia.com.kz</a></b>
+                в Казахстане, и посмотрите его стоимость. Нажмите кнопку "Ввод данных". Заполните необходимые
+                <!-- <br>KIA <b><a href="https://kia.com.kz" target="_blank" style="color: var(--tg-theme-link-color); ">www.kia.com.kz</a></b>
                 <br>или
                 <br>Hyundai <b><a href="https://hyundai.com/kz/ru" target="_blank" style="color: var(--tg-theme-link-color); ">www.hyundai.com/kz</a></b> 
-                <br>в Казахстане, и посмотрите его стоимость. Нажмите кнопку "Ввод данных". Заполните необходимые
+                <br>в Казахстане, и посмотрите его стоимость. Нажмите кнопку "Ввод данных". Заполните необходимые -->
                 поля для расчета и нажмите кнопку "Произвести расчет".
-                <br>Поле "Марка, Модель" заполняется для справки.</p>
+                <p>Поле "Марка, Модель" заполняется для справки.</p>
         </div>
     
         <div id="id_delimiter2" class="delimiter"></div>
@@ -122,24 +132,58 @@
     </div>
 
     <div id="id_div_input_data_form" class="div_input_data_form">
-        <input type='text' placeholder="Марка, Модель" id="model">
+        <select id="brands"><!-- Brands will be filled here --></select>
+        <!-- <input type='text' placeholder="Марка, Модель" id="model"> -->
         <div id="id_delimiter3" class="delimiter_input"></div>
-        <input type='number' placeholder="Стоимость в тенге" id="price" onkeypress='validate(event)'>
+        <select id="models"><!-- Models will be filled here -->
+            <option value="" disabled selected>Select your option</option>
+        </select>
         <div id="id_delimiter4" class="delimiter_input"></div>
-        <input type="number" placeholder="Объём двигателя, куб/см" id="capacity" onkeypress='validate(event)'>
+        <input type='number' placeholder="Стоимость в тенге" id="price" onkeypress='validate(event)'>
         <div id="id_delimiter5" class="delimiter_input"></div>
+        <input type="number" placeholder="Объём двигателя, куб/см" id="capacity" onkeypress='validate(event)'>
+        <div id="id_delimiter6" class="delimiter_input"></div>
         <button id="id_calc_btn" class="button_calc">Произвести расчёт</button>
     </div>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <script src="db_cars.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+
     <script>
         let tg = window.Telegram.WebApp;
         tg.expand();
 
+        window.onload = function () {
+            var brandSelect = document.getElementById('brands');
+            var modelSelect = document.getElementById('models');
+
+            db_cars.forEach(function (brand, index) {
+                var option = document.createElement('option');
+                option.text = brand.name;
+                option.value = index;
+                brandSelect.add(option);
+            });
+
+            brandSelect.onchange = function () {
+                modelSelect.length = 0; // clear out existing items
+                var models = db_cars[this.value].models;
+                models.forEach(function (model) {
+                    var option = document.createElement('option');
+                    option.text = model.name;
+                    modelSelect.add(option);
+                });
+            };
+        }
+
         let btn_exit = document.getElementById('id_input_data_btn');
         btn_exit.addEventListener('click', fun_exit);
         function fun_exit() {
-            document.getElementById("model").value = "";
+            document.getElementById("brands").value = 0;
+            // document.getElementById("models").value = "";
+            $("#models option").remove();
             document.getElementById("price").value = "";
             document.getElementById("capacity").value = "";
             document.getElementById("id_info").style.display = "none";
@@ -163,7 +207,9 @@
         let btn_calc = document.getElementById('id_calc_btn');
         btn_calc.addEventListener('click', fun_calc_data);
         function fun_calc_data() {
-            let model_ = document.getElementById("model").value;
+            let brand_ = $("#brands option:selected").text();
+            // let brand_ = document.getElementById("brands").value;
+            let model_ = document.getElementById("models").value;
             let price_ = document.getElementById("price").value;
             let capacity_ = document.getElementById("capacity").value;
             // console.log(model_);
@@ -176,6 +222,7 @@
             else {
                 let data = {
                     country: "Казахстан",
+                    brand: brand_,
                     model: model_,
                     age: "Новый",
                     price: price_,
