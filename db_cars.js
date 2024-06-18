@@ -2,7 +2,7 @@ var db_cars =
     [
         {
             "id": "NONE",
-            "name": "Выберите марку",
+            "name": "Марка",
             "cyrillic-name": "АС",
             "popular": false,
             "country": "Великобритания",
